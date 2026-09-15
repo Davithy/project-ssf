@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARRY SKIES</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/gallery.css">
+
+    <!-- FANCYBOX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+    
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="team-gallery">
+        <h3 class="team-title">Pokemon Teams</h3>
+        <section class="masonry-team">
+            <div class="masonry-grid">
+                <figure data-fancybox="gallery" 
+                data-src="../assets/pokemonTeam/aron-group.webp" 
+                data-caption="&lt;div class='captions' &gt;Davey's team: Rookidee, Aron, Espeon, Talonflame, Altaria, Gardevoir&lt;/div &gt;"
+                class="team-card">
+                    <img class="team-image" src="../assets/pokemonTeam/aron-group.webp" loading="lazy" decoding="async">
+                    <label class="team-name">DAVEY
+                        <div class="top-types">
+                        </div>
+                    </label>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <section class="results-resources">
+            <h1>What we used to make these!</h1>
+            <p>
+                <a href="https://pokemondb.net/pokedex/national"><p>The National Pokedex</p></a>
+                <a href="https://cajunavenger.github.io/"><p>Pick your favorite pokemon by type/gen</p></a>
+                <a href="https://pokesprites.com/compare-heights"><p>Pokemon Height Chart (for drawing reference)</p></a>
+                <a href="https://pokemondreamteam.com/"><p>Quick Pokemon Team Image Generator</p></a>
+                <a href="https://play.pokemonshowdown.com/sprites/trainers/?view=sprites"><p>A full list of pokemon trainer sprites</p></a>
+                <a href="../results/"><p class= "special">Or jump back to the results!</p></a>
+                <a href="../"><p class= "special">and maybe the quiz?</p></a>
+            </p>
+        </section>
+    </footer>
+    <script src="../js/gallery.js"></script>
+</body>
+</html>

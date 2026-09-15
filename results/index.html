@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARRY SKIES</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- FANCYBOX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+    
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="results">
+        <section class="results-title">
+            <h1>The Results</h1>
+        </section>
+        <div class="table-hint">
+            <input type="checkbox" id="table-tooltip-check" class="table-tooltip-check" disabled>
+            <label for="table-tooltip-check" class="table-tooltip">
+                <div>
+                    <p>Hover over/Tap the names to see their top 3 most picked types!</p>
+                </div>
+            </label>
+        </div>
+        <div class="table-hint-two">
+            <input type="checkbox" id="table-tooltip-check-two" class="table-tooltip-check-two" disabled>
+            <label for="table-tooltip-check-two" class="table-tooltip-two">
+                <div>
+                    <p>You can now organize the chart by type! Just click on one of these icons!</p>
+                </div>
+            </label>
+        </div>
+        <section class="results-table">
+            <div id = "final-results"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <section class="results-resources">
+            <h1>Check out the new page!</h1>
+            <p>
+                <a href="../gallery/"><p>✨ The Team Gallery ✨</p></a>
+                <a href="../"><p class= "special">back to the quiz?</p></a>
+            </p>
+        </section>
+    </footer>
+    <script src="../js/results.js"></script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARRY SKIES</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- FANCYBOX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body class="distance">
+    <header>
+        <nav>
+            <div class="logo">
+            </div>
+        </nav>
+    </header>
+
+    <span></span>
+
+    <main class="questionnaire">
+        <section class="name-menu">
+            <nav class="name-ctrl">
+                <input type="checkbox" id="nav-check" class="dropdown-check">
+                <button class="name-btn" id="name-toggle">
+                    <label for="nav-check" class="nav-connector">
+                        <span>None Selected</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                        </svg>
+                    </label>
+                </button>
+                <ul class="name-pnl">
+                    <li class="name-opt hidden">
+                        <h3>None Selected</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                    <li class="name-opt">
+                        <h3>Cappy</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                    <li class="name-opt">
+                        <h3>Rypt</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                    <li class="name-opt">
+                        <h3>Shin</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                    <li class="name-opt">
+                        <h3>Lyn</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                    <li class="name-opt">
+                        <h3>Seize</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                    <li class="name-opt">
+                        <h3>Davey</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                    <li class="name-opt">
+                        <h3>Grim</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                    <li class="name-opt">
+                        <h3>Rea</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                    <li class="name-opt">
+                        <h3>Mixy</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                    <li class="name-opt">
+                        <h3>Pika</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                    <li class="name-opt">
+                        <h3>Peyro</h3>
+                        <span class="chosen-types">
+                        </span>
+                        <span class="chosen-types">
+                        </span>
+                        <img class="progress" src="assets/x-circle.png" loading="lazy" height=32 width 32>
+                    </li>
+                </ul>
+            </nav>
+            <input type="checkbox" id="tooltip-check" class="tooltip-check" disabled>
+            <label for="tooltip-check" class="tooltip">
+                <div>
+                    <p>Don't be shy! If you think it fits, pick more than 2 types per person!</p>
+                </div>
+            </label>
+            <input type="checkbox" id="toomany-check" class="toomany-check" disabled>
+            <label for="toomany-check" class="toomany">
+                <div>
+                    <p>Hm... Are you sure you need that many?</p>
+                </div>
+            </label>
+        </section>
+
+        <!-- GAP BETWEEN DROPDOWN AND SUBMISSION BUTTON -->
+
+        <section class="submission-btn">
+            <button class="submission-check"
+            data-fancybox data-src="#submission-incomplete">
+                <span>Submit!</span>
+            </button>
+            <div class="hidden" id="submission-complete">
+                <p style="grid-area: fin-txt">Thank you so much for taking the time to fill this in!</p>
+                <span class="submission-inp" style="grid-area: name-inp">
+                    <input type="text" id="name-inp" name="name" placeholder=" " required>
+                    <label class="input-label" for="name-inp">Your Name</label>
+                    <button class="results-btn">
+                        <span>To the results!</span>
+                    </button>
+                </span>
+            </div>
+            <div class="hidden" id="submission-incomplete">
+                <p>Uh oh! Looks like folks are still missing some types!</p>
+            </div>
+        </section>
+
+        <!-- GAP BETWEEN SUBMISSION AND CHECKBOX GRID -->
+
+        <section class="choice-container">
+            <div class="multiple-choice">
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="normal" id="normal">
+                    <label class="choice-tile" for="normal">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/normal.svg"></span>
+                            <span class="choice-header">Normal</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="fire" id="fire">
+                    <label class="choice-tile" for="fire">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/fire.svg"></span>
+                            <span class="choice-header">Fire</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="water" id="water">
+                    <label class="choice-tile" for="water">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/water.svg"></span>
+                            <span class="choice-header">Water</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="electric" id="electric">
+                    <label class="choice-tile" for="electric">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/electric.svg"></span>
+                            <span class="choice-header">Electric</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="grass" id="grass">
+                    <label class="choice-tile" for="grass">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/grass.svg"></span>
+                            <span class="choice-header">Grass</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="ice" id="ice">
+                    <label class="choice-tile" for="ice">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/ice.svg"></span>
+                            <span class="choice-header">Ice</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="fighting" id="fighting">
+                    <label class="choice-tile" for="fighting">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/fighting.svg"></span>
+                            <span class="choice-header">Fighting</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="poison" id="poison">
+                    <label class="choice-tile" for="poison">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/poison.svg"></span>
+                            <span class="choice-header">Poison</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="ground" id="ground">
+                    <label class="choice-tile" for="ground">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/ground.svg"></span>
+                            <span class="choice-header">Ground</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="flying" id="flying">
+                    <label class="choice-tile" for="flying">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/flying.svg"></span>
+                            <span class="choice-header">Flying</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="psychic" id="psychic">
+                    <label class="choice-tile" for="psychic">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/psychic.svg"></span>
+                            <span class="choice-header">Psychic</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="bug" id="bug">
+                    <label class="choice-tile" for="bug">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/bug.svg"></span>
+                            <span class="choice-header">Bug</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="rock" id="rock">
+                    <label class="choice-tile" for="rock">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/rock.svg"></span>
+                            <span class="choice-header">Rock</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="ghost" id="ghost">
+                    <label class="choice-tile" for="ghost">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/ghost.svg"></span>
+                            <span class="choice-header">Ghost</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="dragon" id="dragon">
+                    <label class="choice-tile" for="dragon">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/dragon.svg"></span>
+                            <span class="choice-header">Dragon</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="dark" id="dark">
+                    <label class="choice-tile" for="dark">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/dark.svg"></span>
+                            <span class="choice-header">Dark</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="steel" id="steel">
+                    <label class="choice-tile" for="steel">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/steel.svg"></span>
+                            <span class="choice-header">Steel</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice">
+                    <input type="checkbox" class="choice-checker" data-type="fairy" id="fairy">
+                    <label class="choice-tile" for="fairy">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/icons/fairy.svg"></span>
+                            <span class="choice-header">Fairy</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice unsure">
+                    <input type="checkbox" class="choice-checker" data-type="unsure" id="unsure">
+                    <label class="choice-tile" for="unsure">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img src="assets/question.svg"></span>
+                            <span class="choice-header">I don't know...</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="choice clear-all">
+                    <input type="checkbox" class="choice-checker" data-type="Clear All" id="clearAll">
+                    <label class="choice-tile" for="clearAll">
+                        <span class="choice-blueprint">
+                            <span class="choice-icon"><img class="progress" src="assets/x-circle.png"></span>
+                            <span class="choice-header">Clear All</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer distancing">
+        <section class="results-resources">
+            <h3>Already filled out the form?</h3>
+            <a href="results/">Head to the results</a>
+            <a href="gallery/"><p>✨ or take a look at the new team gallery! ✨</p></a>
+        </section>
+    </footer>
+    <script src="js/form.js"></script>
+</body>
+
+</html>
