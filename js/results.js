@@ -1,8 +1,8 @@
 Fancybox.bind("[data-fancybox]", {
 })
 
-const url = "https://tclzvnzmcqclngrsekfo.supabase.co";
-const public_api = "sb_publishable_cM6Vc142F4i-KjpCnX_MeA_y_H6prOz";
+const url = "https://bfyvolhralzalauadcsg.supabase.co";
+const public_api = "sb_publishable_eI9Xb0qpcS0-yEEUJ-bAig_nLLL3b1_";
 
 const supabaseClient = supabase.createClient(url, public_api);
 const scQuery = window.matchMedia("(min-width: 1201px)");
@@ -14,7 +14,7 @@ let previousType = 0;
 
 async function dataFetch() {
     const { data, error } = await supabaseClient
-        .from('wreckSubmissions')
+        .from('starryskySubmissions')
         .select('*');
     if (error) {
         console.log(error);
