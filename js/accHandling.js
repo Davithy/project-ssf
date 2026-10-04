@@ -121,7 +121,7 @@ async function accPassChange() {
 
     await sbIn(
         supaClient.auth.resetPasswordForEmail(userEmail.email, {
-        redirectTo: 'http://davithy.github.io/artist/update-password/',
+        redirectTo: 'https://davithy.github.io/project-ssf/artist/update-password/',
         })
     );
 }
