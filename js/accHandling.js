@@ -1,6 +1,3 @@
-Fancybox.bind("[data-fancybox]", {
-})
-
 const url = "https://bfyvolhralzalauadcsg.supabase.co";
 const public_api = "sb_publishable_eI9Xb0qpcS0-yEEUJ-bAig_nLLL3b1_";
 const sbTable = "ssPortfolio"
@@ -115,25 +112,19 @@ async function currentUser() {
     return data.user;
 }
 
-// CHANGE PASSWORD REDIRECT
-async function accPassChange() {
-    const userEmail = await currentUser();
-    
-    console.log(userEmail.email);
-
-    await sbIn(
-        supaClient.auth.resetPasswordForEmail(userEmail.email, {
-        redirectTo: 'https://davithy.github.io/project-ssf/artist/update-password/',
-        })
-    );
-}
-
 // VERIFY BEFORE CHANGING PASS
 async function verifyPass() {
-    if (!(nuserPass.value && oluserPass.value)) {
-        return;
+    if (!oluserPass) {
+        if (!nuserPass.value) {
+            return;
+        }
+        forgotPass(nuserPass.value);
+    } else {
+        if (!(nuserPass.value && oluserPass.value)) {
+            return;
+        }
+        changePass(nuserPass.value, oluserPass.value);
     }
-    changePass(nuserPass.value, oluserPass.value);
 }
 
 // CHANGING PASS
@@ -146,6 +137,29 @@ async function changePass(nuPass, olPass) {
     )
 }
 
+// FORGOT PASSWORD REDIRECT
+async function accPassChange() {
+    if (!(userMail.value)) {
+        return;
+    }
+
+    console.log(userMail.value);
+
+    await sbIn(
+        supaClient.auth.resetPasswordForEmail(userMail.value, {
+        redirectTo: 'https://davithy.github.io/project-ssf/artist/forgot-password/',
+        })
+    );
+}
+
+// FORGOT PASS
+async function forgotPass(nuPass) {
+    sbIn(
+        supaClient.auth.updateUser({
+            password: nuPass
+        })
+    )
+}
 
 // LOGIN VIA SUPABASE
 async function accLogIn() {
@@ -197,7 +211,7 @@ async function accDelete() {
     try {
         await sbIn(supaClient.rpc('delete_account'));
         await supaClient.auth.signOut();
-        window.location.href = "../home/";
+        window.location.href = "../../home/";
     } catch (error) {
         console.log(error);
     }
@@ -226,9 +240,33 @@ function domPresent(dom, process) {
     if(dom) {dom.onclick = process};
 }
 
+// async function potential() {
+//     const potential = sbIn(
+//         supaClient.auth.onAuthStateChange((event, session) => {
+//         console.log(event, session)
+//         if (event === 'INITIAL_SESSION') {
+//             // handle initial session
+//         } else if (event === 'SIGNED_IN') {
+//             // handle sign in event
+//         } else if (event === 'SIGNED_OUT') {
+//             // handle sign out event
+//         } else if (event === 'PASSWORD_RECOVERY') {
+//             // handle password recovery event
+//         } else if (event === 'TOKEN_REFRESHED') {
+//             // handle token refreshed event
+//         } else if (event === 'USER_UPDATED') {
+//             // handle user updated event
+//         }
+//         })
+//         // call unsubscribe to remove the callback
+//     )
+        
+//     potential.subscription.unsubscribe()
+// }
+
 const doms = [
     // NEW USER
-    [nuPassBtn, accCreate],
+    [nUserAccBtn, accCreate],
 
     // NEW PASSWORD
     [userPassChange, accPassChange],
