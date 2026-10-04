@@ -139,7 +139,7 @@ async function verifyPass() {
 // CHANGING PASS
 async function changePass(nuPass, olPass) {
     sbIn(
-        supabase.auth.updateUser({
+        supaClient.auth.updateUser({
             password: nuPass,
             current_password: olPass
         })
