@@ -220,14 +220,22 @@ function goHome() {
     }, 500)
 }
 
-// NEW USER
-nUserAccBtn.onclick = accCreate;
+function domPresent(dom, process) {
+    if(dom) {dom.onclick = process};
+}
 
-// NEW PASSWORD
-userPassChange.onclick = accPassChange;
-if(nuPassBtn) {nuPassBtn.onclick = verifyPass;}
+const doms = [
+    // NEW USER
+    [nuPassBtn, accCreate],
 
-// ACCOUNT HANDLING
-userLogInBtn.onclick = accLogIn;
-userLogOutBtn.onclick = accLogOut;
-userDelAccBtn.onclick = accDelete;
+    // NEW PASSWORD
+    [userPassChange, accPassChange],
+    [nuPassBtn, verifyPass],
+
+    // ACCOUNT HANDLING
+    [userLogInBtn, accLogIn],
+    [userLogOutBtn, accLogOut],
+    [userDelAccBtn, accDelete]
+]
+
+doms.forEach(([dom, process]) => domPresent(dom, process));
