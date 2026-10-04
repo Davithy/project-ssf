@@ -13,6 +13,8 @@ const user = document.querySelector(".acc-name");
 const userMail = document.querySelector(".acc-mail");
 const userPass = document.querySelector(".acc-pass");
 const userInvCode = document.querySelector(".acc-invcode");
+const nuserPass = document.querySelector(".new-pass");
+const oluserPass = document.querySelector(".old-pass");
 
 // NUSER/NUPASS 
 const userPassChange = document.querySelector(".acc-passchange");
@@ -128,10 +130,10 @@ async function accPassChange() {
 
 // VERIFY BEFORE CHANGING PASS
 async function verifyPass() {
-    if (!(newPass.value && oldPass.value)) {
+    if (!(nuserPass.value && oluserPass.value)) {
         return;
     }
-    changePass(newPass.value, oldPass.value);
+    changePass(nuserPass.value, oluserPass.value);
 }
 
 // CHANGING PASS
