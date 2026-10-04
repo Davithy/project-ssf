@@ -1,0 +1,46 @@
+body {
+    background-color: var(--surface-color);
+}
+
+.acc-btn {
+    padding: 0.25rem 0.75rem;
+    color: var(--text);
+    font-family: var(--font-common);
+}
+
+.logo {
+    cursor: pointer;
+    display: flex;
+    padding-left: 0.5rem
+}
+
+.logo-item.main {
+    position: relative;
+    color: var(--white);
+    font-size: 3rem;
+    font-family: var(--font-fancy);
+}
+
+.logo-item.tag {
+    position: absolute;
+    transform: translateX(3rem) translateY(1.25rem);
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-family: var(--font-tag);
+}
+
+.logo:link {
+      text-decoration: none;
+}
+
+.logo:visited {
+      text-decoration: none;
+}
+
+.logo:hover {
+      text-decoration: none;
+}
+
+.logo:active {
+      text-decoration: none;
+}
