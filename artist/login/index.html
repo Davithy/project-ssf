@@ -5,14 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STARRY SKIES PORTFOLIO</title>
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
     <meta name="description"
         content="">
     <meta name="keywords" content="">
+    <script type="module" src="../../js/accHandling.js"></script>
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../assets/favicon/site.webmanifest">
 
     <!-- FONTS -->
     <link href="https://fonts.cdnfonts.com/css/starlight-rune-personal-use" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=nunito@400&f[]=melodrama@500&display=swap" rel="stylesheet"> 
+    <link href="https://api.fontshare.com/v2/css?f[]=nunito@400,900&f[]=melodrama@500,700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.cdnfonts.com/css/supernova-2" rel="stylesheet">
     
     <!-- FANCYBOX -->
@@ -23,35 +29,24 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/registration.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/accHandling.css">
 </head>
 
-<body>
+<body data-auth-redirect="true">
 <!-- = NAV BAR = -->
     <header class="navbar">
-        <a class="logo" href="#">
+        <a class="logo" href="../../home">
             <label class="logo">
-                <img class="logo-item main" src="assets/aronf-logo.svg" alt="STARRY SKY">
+                <img class="logo-item main" alt="STARRY SKY">
+                <div class="logo-sparkle"></div> 
                 <p class="logo-item tag">FIGHTERS</p>
             </label>
         </a>
         <nav class="nav-menu">
-            <div class = "nav-item"><a href="#" class="main-nav">Home</a></div>
-            <div class = "nav-item"><a href="biography/" class="main-nav">About<span class="nav-arrow">▾</span></a>
-            <ul class="dropdown-panel">
-                <li><a href="biography/">Biography</a></li>
-                <li><a href="resume/aronf-resume.pdf" data-fancybox>Resume</a></li>
-            </ul>
-            </div>
-            <div class = "nav-item"><a href="character-art/" class="main-nav">Portfolio<span class="nav-arrow">▾</span></a>
-            <ul class="dropdown-panel">
-                <li><a href="character-art/">Character Art</a></li>
-                <li><a href="vis-dev/">Vis Dev</a></li>
-                <li><a href="3d/">3d work</a></li>
-                <li><a href="animation/">Animation</a></li>
-            </ul>
-            </div>
+            <div class = "nav-item"><a href="../../home/" class="main-nav">Home</a></div>
+            <div class = "nav-item"><a href="../../about/" class="main-nav">About</a></div>
+            <div class = "nav-item"><a href="../" class="main-nav">Artists</a></div>
         </nav>
 <!-- = FOR SMALLER SCREENS = -->
         <section class="burger-menu">
@@ -66,33 +61,30 @@
 
     <main>
         <section class="acc-signin">
-            <input class="acc-name" type="text">
-            <input class="acc-mail" type="email">
-            <input class="acc-pass" type="password">
-            <span>
-                <button class="acc-btn acc-submit" type="button">
-                <label>
-                    <h3>Submit</h3>
-                </label>
-            </span>
-            <span>
-                <button class="acc-btn acc-login" type="button">
-                <label>
-                    <h3>Log in</h3>
-                </label>
-            </span>
-            <span>
-                <button class="acc-btn acc-logout" type="button">
-                <label>
-                    <h3>Log Out</h3>
-                </label>
-            </span>
-            <span>
-                <button class="acc-btn" type="button">
-                <label>
-                    <h3>Delete Account?</h3>
-                </label>
-            </span>
+            <div class="login panel">
+                <span class="acc-segmnt acc-header">
+                    <h2> Welcome Back! </h2>
+                </span>
+                <span class="acc-segmnt">
+                    <p>E-mail</p>
+                    <input class="acc-mail textbox" type="text" placeholder="E-mail" required>
+                </span>
+                <span class="acc-segmnt">
+                    <p>Password</p>
+                    <input class="acc-pass textbox submittable" type="password" placeholder="Password" required>
+                    <label><a href="../forgot-password" class="pass-redirect">Forgot Password?</a></label>
+                </span>
+                <span class="acc-segmnt">
+                    <button class="acc-btn acc-login submittable-target" type="button">
+                        <label>
+                            <h3>Log in</h3>
+                        </label>
+                    </button>
+                </span>
+                <span class="acc-segmnt regi-redirect">
+                    <p>Don't have an account? <a href="../registration">Sign up!</a></p>
+                </span>
+            </div>
         </section>
     </main>
 
@@ -103,6 +95,5 @@
         </div>
     </footer>
 </body>
-<script src="../js/accHandling.js"></script>
 <noscript>Some functions are not fully available without Javascript, but enjoy the art!</noscript>
 </html>

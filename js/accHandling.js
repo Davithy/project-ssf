@@ -12,6 +12,7 @@ const userPass = document.querySelector(".acc-pass");
 const userInvCode = document.querySelector(".acc-invcode");
 const nuserPass = document.querySelector(".new-pass");
 const oluserPass = document.querySelector(".old-pass");
+const keybEnter = document.querySelector(".submittable");
 
 // NUSER/NUPASS 
 const userPassChange = document.querySelector(".acc-passchange");
@@ -19,16 +20,19 @@ const nuPassBtn = document.querySelector(".pass-submit");
 const nUserAccBtn = document.querySelector(".acc-submit");
 
 // ACCOUNT HANDLING
+const loginRedirect = document.querySelector(".login-redirect");
 const userLogInBtn = document.querySelector(".acc-login");
 const userLogOutBtn = document.querySelector(".acc-logout");
 const userDelAccBtn = document.querySelector(".acc-del");
+const artistOnly = document.querySelectorAll(".artist-only");
+const artistCheck = document.querySelectorAll(".artist-check");
 
 
 // DATA/ERROR HANDLING
 async function sbIn(client) {
     const { data, error } = await client;
     if (error) {
-        console.log(error.code);
+        // console.log(error.code);
         throw error;
     }
     return data;
@@ -60,7 +64,7 @@ async function accCreate() {
 
         await newUser(userMailLower, userPass.value, user.value, userInvCode.value);
     } catch (error) {
-        console.log(error)
+        // console.log(error)
     }
 }
 
@@ -86,7 +90,7 @@ async function newUser(email, password, userName, invCode) {
                     display_name: userName,
                     invite_code: invCode
                 },
-                emailRedirectTo: 'https://davithy.github.io/'
+                emailRedirectTo: 'https://davithy.github.io/project-ssf'
             }
         })
     )
@@ -105,11 +109,14 @@ async function userTaken(name) {
 
 // SELECTING ACTIVE ACCOUNT
 async function currentUser() {
-    const data = await sbIn(
-        supaClient.auth.getUser()
-    )
-
-    return data.user;
+    try {
+        const data = await sbIn(
+            supaClient.auth.getUser()
+        )
+        return data.user;
+    } catch (error) {
+        return null;
+    }
 }
 
 // VERIFY BEFORE CHANGING PASS
@@ -143,11 +150,11 @@ async function accPassChange() {
         return;
     }
 
-    console.log(userMail.value);
+    // console.log(userMail.value);
 
     await sbIn(
         supaClient.auth.resetPasswordForEmail(userMail.value, {
-        redirectTo: 'https://davithy.github.io/project-ssf/artist/forgot-password/',
+        redirectTo: 'https://davithy.github.io/project-ssf/artist/new-password/',
         })
     );
 }
@@ -189,6 +196,24 @@ async function logIn(email, password) {
     .then(goHome);
 };
 
+// LOG IN/OUT BUTTON CHECK
+async function updateUI() {
+    const user = await currentUser();
+    if (user) {
+        if (userLogOutBtn) {userLogOutBtn.classList.remove("hidden");}
+        if (artistCheck) {
+            artistCheck.forEach(entry => {
+                entry.classList.remove("artist-only")
+            });
+        }
+    } else {
+        if (loginRedirect) {loginRedirect.classList.remove("hidden");}
+        if (userLogOutBtn) {userLogOutBtn.classList.add("hidden");}
+    }
+
+    // console.log(user);
+}
+
 // ACCOUNT LOGOUT LOGIC
 async function accLogOut() {
     const currentSesh = await currentUser();
@@ -211,7 +236,7 @@ async function accDelete() {
     try {
         await sbIn(supaClient.rpc('delete_account'));
         await supaClient.auth.signOut();
-        window.location.href = "../../home/";
+        goHome();
     } catch (error) {
         console.log(error);
     }
@@ -240,29 +265,28 @@ function domPresent(dom, process) {
     if(dom) {dom.onclick = process};
 }
 
-// async function potential() {
-//     const potential = sbIn(
-//         supaClient.auth.onAuthStateChange((event, session) => {
-//         console.log(event, session)
-//         if (event === 'INITIAL_SESSION') {
-//             // handle initial session
-//         } else if (event === 'SIGNED_IN') {
-//             // handle sign in event
-//         } else if (event === 'SIGNED_OUT') {
-//             // handle sign out event
-//         } else if (event === 'PASSWORD_RECOVERY') {
-//             // handle password recovery event
-//         } else if (event === 'TOKEN_REFRESHED') {
-//             // handle token refreshed event
-//         } else if (event === 'USER_UPDATED') {
-//             // handle user updated event
-//         }
-//         })
-//         // call unsubscribe to remove the callback
-//     )
-        
-//     potential.subscription.unsubscribe()
-// }
+async function potential() {
+
+    const {data} = supaClient.auth.onAuthStateChange((event, session) => {
+        updateUI();
+        // console.log(event);
+        if ((event === 'SIGNED_IN' || event === 'INITIAL_SESSION') && session) {
+            if (document.body.dataset.authRedirect === "true") {
+                goHome();
+            }
+        } // else if (event === 'SIGNED_OUT') {
+        //     // handle sign out event
+        // } else if (event === 'PASSWORD_RECOVERY') {
+        //     // handle password recovery event
+        // } else if (event === 'TOKEN_REFRESHED') {
+        //     // handle token refreshed event
+        // } else if (event === 'USER_UPDATED') {
+        //     // handle user updated event
+        // }
+        });
+
+    // console.log(data);
+}
 
 const doms = [
     // NEW USER
@@ -279,3 +303,12 @@ const doms = [
 ]
 
 doms.forEach(([dom, process]) => domPresent(dom, process));
+
+if (keybEnter) {
+    keybEnter.addEventListener('keydown', (enter) => {
+        if (enter.key !== 'Enter') return;
+        document.querySelector('.submittable-target')?.click();
+    })
+}
+
+potential();

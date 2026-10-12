@@ -1,0 +1,144 @@
+body {
+    background-color: var(--surface-color);
+    font-family: var(--font-common);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+}
+
+main,
+footer {
+    color: var(--white);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    display: flex;
+    flex-shrink: 0;
+    font-size: 1rem;
+    padding: 1rem;
+    justify-content: end;
+}
+
+.acc-btn h3 {
+    padding: 0.25rem 0.75rem;
+    font-family: var(--font-header);
+    color: var(--text);
+}
+
+.acc-signin,
+.regi-redirect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.acc-btn {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 0;
+    background-color: var(--secondary-color);
+    color: var(--black);
+    transition: background-color 0.3s, transform 0.2s, color 0.3s;
+}
+
+.acc-btn:hover {
+    border: 0;
+    background-color: hsl(from var(--secondary-color) h calc(s + 10) calc(l - 15));
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.acc-segmnt {
+    width: 75%;
+    padding: 0.5rem 0;
+}
+
+.acc-segmnt:has(.acc-login) {
+    padding: 1rem 0 2rem;
+}
+
+
+.acc-segmnt:has(.acc-submit),
+.acc-segmnt:has(.pass-submit) {
+    padding: 2.5rem 0 1rem;
+}
+
+.acc-segmnt .acc-btn label {
+    cursor: pointer;
+}
+
+.acc-header,
+.acc-segmnt h2  {
+    padding: 0 0 1rem;
+    font-size: min(3vw, 2.2rem);
+    font-weight: 900;
+}
+
+.acc-segmnt p {
+    padding: 0.5rem 0;
+}
+
+label:has(.pass-redirect) {
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pass-redirect,
+.regi-redirect {
+    font-size: 1.2rem;
+}
+
+.textbox {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    color: var(--white);
+    background: hsl(from var(--black) h s l / 30%);
+    backdrop-filter: blur(1.8rem);
+    -webkit-backdrop-filter: blur(1.8rem);
+    box-shadow: 0 7rem 15rem -3rem hsl(from var(--black) h s l / 75%), inset 0 0.05rem 0 hsl(from var(--white) h s l / 10%);
+    transition: background .18s;
+}
+
+.textbox:focus-visible {
+  outline: none;
+  background: hsl(from var(--white) h s l / 13%);
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    width: 33rem;
+    border-radius: 2rem;
+    padding: 3rem 0;
+    align-items: center;
+    background: hsl(from var(--white) h s l / 5%);
+    backdrop-filter: blur(1.8rem);
+    -webkit-backdrop-filter: blur(1.8rem);
+    border: 0.1rem solid hsl(from var(--accent-color) calc(h + 10) calc(s + 50) calc(l - 30));
+    box-shadow: 0 7rem 15rem -3rem hsl(from var(--black) h s l / 75%), inset 0 0.05rem 0 hsl(from var(--black) h s l / 10%);
+}
+
+.panel a:link,
+.panel a:visited,
+.panel a:active {
+    text-decoration: none;
+    color: var(--accent-color);
+    transition: color 0.3s;
+}
+
+.panel a:hover {
+    text-decoration: underline;
+    color: hsl(from var(--accent-color) calc(h + 10) calc(s + 50) calc(l - 30));
+}

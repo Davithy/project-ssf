@@ -79,6 +79,10 @@ figcaption {
     max-width: 65ch;
 }
 
+.hidden {
+    display: none;
+}
+
 /* =====================================================================================================================================
 NAV BAR
 ========================================= */
@@ -94,19 +98,50 @@ NAV BAR
 }
 
 .logo {
+    cursor: pointer;
+    display: flex;
+    padding-left: 0.5rem
+}
+
+.logo-item.main {
+    position: relative;
+    color: var(--white);
+    font-size: 3rem;
+    font-family: var(--font-fancy);
+}
+
+.logo-item.tag {
+    position: absolute;
+    transform: translateX(3rem) translateY(1.25rem);
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-family: var(--font-tag);
+    -webkit-text-stroke-width: 0.05rem;
+    -webkit-text-stroke-color: var(--surface-color);
+}
+
+.logo-sparkle {
+    position: absolute;
+    transform: translateX(0.6rem) translateY(-0.1rem);
+    height: 1rem;
+    width: 1rem;
+    background: hsl(from var(--accent-color) h calc(s + 30) l);
+    mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+}
+
+.logo:link,
+.logo:visited,
+.logo:hover,
+.logo:active {
+      text-decoration: none;
+}
+
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: clamp(0.25rem, 3.5vw, 1.4rem);
     text-wrap: balance;
-}
-
-.logo a:link,
-.logo a:visited,
-.logo a:hover,
-.logo a:active {
-    color: var(--text);
-    text-decoration: none;
 }
 
 .logo-item {
@@ -152,6 +187,10 @@ NAV BAR
     transition: transform 0.25s ease;
     line-height: 1;
     margin-top: 1px;
+}
+
+.artist-only {
+    display: none;
 }
 
 .dropdown-panel {
