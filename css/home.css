@@ -8,9 +8,33 @@ body {
     min-height: 100dvh;
 }
 
-main,
-footer {
+.bg-skies {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: no-repeat center/100% url("../assets/background/star-mask.jpg");
+    mask: center/100% 110% url("../assets/background/starrysky-background-3.png");
+    z-index: 0;
+}
+
+main {
+    position: absolute;
     color: var(--white);
+    z-index: 1;
+    width: 100%;
+}
+
+footer {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    color: var(--white);
+    z-index: 1;
+}
+
+header {
+    position: sticky;
 }
 
 main {
@@ -27,6 +51,30 @@ footer {
     font-size: 1rem;
     padding: 1rem;
     justify-content: end;
+}
+
+#home {
+    display: flex;
+    border: solid 3px red;
+    align-self: flex-start;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#about {
+    display: flex;
+    border: solid 3px blue;
+    width: 100%;
+    height: 100vh;
+}
+
+#artists {
+    display: flex;
+    border: solid 3px green;
+    width: 100%;
+    height: 100vh;
 }
 
 .acc-btn h3 {
@@ -146,4 +194,43 @@ label:has(.pass-redirect) {
 .panel a:hover {
     text-decoration: underline;
     color: hsl(from var(--accent-color) calc(h + 10) calc(s + 50) calc(l - 30));
+}
+
+.logo-home {
+    text-shadow: 0 0 1px var(--white);
+    transform: scale(6);
+}
+
+.logo-item.tag {
+    text-shadow: 0 0 2px hsl(from var(--surface-color) h s calc(l - 5));
+    -webkit-text-stroke: 0;
+}
+
+.logo-home:link,
+.logo-home:visited,
+.logo-home:hover,
+.logo-home:active {
+      text-decoration: none;
+}
+
+.navbar {
+    justify-content: center;
+}
+
+.nav-menu {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.acc-menu {
+    padding-right: 2rem;
+}
+
+@media screen and (max-width: 850px) {
+    .main-nav,
+    .acc-menu {
+        position: inherit;
+        width: 100%;
+        background-color: var(--surface-color);
+    }
 }

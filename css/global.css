@@ -89,12 +89,12 @@ NAV BAR
 
 .navbar {
     min-width: 1vw;
-    background-color: var(--surface-color);
     color: var(--white);
     display: flex;
     justify-content: space-between;
     padding: 2svh;
     padding-bottom: 1svh;
+    z-index: 9999;
 }
 
 .logo {
@@ -108,11 +108,12 @@ NAV BAR
     color: var(--white);
     font-size: 3rem;
     font-family: var(--font-fancy);
+    transform: translateX(0.25rem);
 }
 
 .logo-item.tag {
     position: absolute;
-    transform: translateX(3rem) translateY(1.25rem);
+    transform: translateX(3.25rem) translateY(1.25rem);
     color: var(--primary-color);
     font-size: 2rem;
     font-family: var(--font-tag);
@@ -309,7 +310,6 @@ NAV BAR
     .logo {
         padding-left: 0.5rem;
     }
-
     .nav-menu {
         position: fixed;
         border-radius: 0px;

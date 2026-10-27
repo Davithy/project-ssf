@@ -36,35 +36,32 @@
 <body>
 <!-- = NAV BAR = -->
     <header class="navbar">
-        <a class="logo" href="#">
-            <label class="logo">
-                <img class="logo-item main" alt="STARRY SKY">
-                <div class="logo-sparkle"></div> 
-                <p class="logo-item tag">FIGHTERS</p>
-            </label>
-        </a>
         <nav class="nav-menu">
-            <div class = "nav-item"><a href="#" class="main-nav">Home</a></div>
-            <div class = "nav-item"><a href="../about/" class="main-nav">About</a></div>
-            <div class = "nav-item"><a href="../artist/" class="main-nav">Artists<span class="nav-arrow artist-check artist-only">▾</span></a>
-                <ul class="dropdown-panel artist-check artist-only">
-                    <li><a href="../artist/">Artists</a></li>
-                    <li><a href="../artist/account" data-fancybox>Account</a></li>
-                </ul>
+            <div class="main-nav">
+                <div class = "nav-item"><a href="#" class="main-nav">Home</a></div>
+                <div class = "nav-item"><a href="#about" class="main-nav">About</a></div>
+                <div class = "nav-item"><a href="#artists" class="main-nav">Artists<span class="nav-arrow artist-check artist-only">▾</span></a>
+                    <ul class="dropdown-panel artist-check artist-only">
+                        <li><a href="../artist/">Artists</a></li>
+                        <li><a href="../artist/account" data-fancybox>Account</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="nav-item special">
-                <button onclick="window.location.href='../artist/login';" class="acc-btn login-redirect hidden" type="button">
-                    <label>
-                        <h3>Log in</h3>
-                    </label>
-                </button>
-            </div>
-            <div>
-                <button class="acc-btn acc-logout hidden" type="button">
-                    <label>
-                        <h3>Log Out</h3>
-                    </label>
-                </button>
+            <div class="acc-menu">
+                <div class="nav-item special">
+                    <button onclick="window.location.href='../artist/login';" class="acc-btn login-redirect hidden" type="button">
+                        <label>
+                            <h3>Log in</h3>
+                        </label>
+                    </button>
+                </div>
+                <div class="nav-item special">
+                    <button class="acc-btn acc-logout hidden" type="button">
+                        <label>
+                            <h3>Log Out</h3>
+                        </label>
+                    </button>
+                </div>
             </div>
         </nav>
 <!-- = FOR SMALLER SCREENS = -->
@@ -79,6 +76,21 @@
     </header>
 
     <main>
+        <section id="home">
+            <a class="logo-home" href="#">
+                <label class="logo">
+                    <img class="logo-item main" alt="STARRY SKY">
+                    <div class="logo-sparkle"></div> 
+                    <p class="logo-item tag">FIGHTERS</p>
+                </label>
+            </a>
+        </section>
+        <section id="about">
+            <h1>About</h1>
+        </section>
+        <section id="artists">
+            <h1>CHOOSE YOUR ARTIST!</h1>
+        </section>
     </main>
 
 <!-- = FOOTER = -->
@@ -87,6 +99,7 @@
         <div class="socials">
         </div>
     </footer>
+    <div class="bg-skies"></div>
 </body>
 <noscript>Some functions are not fully available without Javascript, but enjoy the art!</noscript>
 </html>
